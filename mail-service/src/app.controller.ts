@@ -12,8 +12,8 @@ export class AppController {
     return this.appService.sendEmail(data);
   }
 
-  @MessagePattern({ cmd: 'get-send-email-results' })
-  getResults() {
-    return this.appService.getSendEmailResults();
+  @MessagePattern({ cmd: 'get-send-email-history' })
+  getSendEmailHistory() {
+    return this.appService.getSendEmailHistory();
   }
 }

@@ -21,7 +21,7 @@ export class AppService {
     return this.userServiceClient.send({ cmd: 'get-users' }, {});
   }
 
-  getEmailResults() {
-    return this.mailServiceClient.send({ cmd: 'get-send-email-results' }, {});
+  getEmailHistory() {
+    return this.mailServiceClient.send({ cmd: 'get-send-email-history' }, {});
   }
 }

@@ -11,8 +11,8 @@ export class AppController {
     return this.appService.createUser(body);
   }
 
-  @Get('email-results')
-  getResults() {
-    return this.appService.getEmailResults();
+  @Get('email-history')
+  getSendEmailHistory() {
+    return this.appService.getEmailHistory();
   }
 }

@@ -3,7 +3,7 @@ import { SendEmailEvent } from './send-email.event';
 
 @Injectable()
 export class AppService {
-  private readonly sendEmailResults: {
+  private readonly sendEmailHistory: {
     toUser: { id: number; email: string; name: string };
     status: 'success' | 'error';
     ts: number;
@@ -13,14 +13,14 @@ export class AppService {
     // TODO: Send email to created user
     // ...
 
-    return this.sendEmailResults.push({
+    return this.sendEmailHistory.push({
       toUser: { id: data.id, email: data.email, name: data.name },
       status: 'success',
       ts: Date.now(),
     });
   }
 
-  getSendEmailResults() {
-    return this.sendEmailResults;
+  getSendEmailHistory() {
+    return this.sendEmailHistory;
   }
 }
