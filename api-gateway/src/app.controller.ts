@@ -11,6 +11,11 @@ export class AppController {
     return this.appService.createUser(body);
   }
 
+  @Get('users')
+  gerUsers() {
+    return this.appService.getUsers();
+  }
+
   @Get('email-history')
   getSendEmailHistory() {
     return this.appService.getEmailHistory();

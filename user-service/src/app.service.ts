@@ -5,7 +5,12 @@ import { SendEmailEvent } from './send-email.event';
 
 @Injectable()
 export class AppService {
-  private readonly users: { id: number; name: string; email: string }[] = [];
+  private readonly users: {
+    id: number;
+    name: string;
+    email: string;
+    createdAt: Date;
+  }[] = [];
 
   constructor(
     @Inject('MAIL_SERVICE') private readonly mailServiceClient: ClientProxy,
@@ -16,6 +21,7 @@ export class AppService {
       id: this.users.length + 1,
       name: data.name,
       email: data.email,
+      createdAt: new Date(),
     };
 
     this.users.push(newUser);
