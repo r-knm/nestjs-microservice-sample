@@ -2,6 +2,7 @@ import { Body, Controller, Get, Post } from '@nestjs/common';
 import { AppService } from './app.service';
 import { CreateUserRequestDto } from './create-user.dto';
 import { GetUsersRequestDto } from './get-users.dto';
+import { GetSendEmailHistoryRequestDto } from './get-send-email-history.dto';
 
 @Controller()
 export class AppController {
@@ -18,7 +19,7 @@ export class AppController {
   }
 
   @Get('email-history')
-  getSendEmailHistory() {
-    return this.appService.getEmailHistory();
+  async getSendEmailHistory(): Promise<GetSendEmailHistoryRequestDto> {
+    return await this.appService.getEmailHistory();
   }
 }

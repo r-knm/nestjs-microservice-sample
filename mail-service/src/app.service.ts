@@ -20,7 +20,17 @@ export class AppService {
     });
   }
 
-  getSendEmailHistory() {
+  async getSendEmailHistory(): Promise<
+    {
+      toUser: {
+        id: number;
+        email: string;
+        name: string;
+      };
+      status: 'success' | 'error';
+      ts: number;
+    }[]
+  > {
     return this.sendEmailHistory;
   }
 }

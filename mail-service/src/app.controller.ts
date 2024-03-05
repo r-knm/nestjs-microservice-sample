@@ -13,7 +13,17 @@ export class AppController {
   }
 
   @MessagePattern({ cmd: 'get-send-email-history' })
-  getSendEmailHistory() {
-    return this.appService.getSendEmailHistory();
+  async getSendEmailHistory(): Promise<
+    {
+      toUser: {
+        id: number;
+        email: string;
+        name: string;
+      };
+      status: 'success' | 'error';
+      ts: number;
+    }[]
+  > {
+    return await this.appService.getSendEmailHistory();
   }
 }

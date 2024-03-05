@@ -3,6 +3,7 @@ import { CreateUserRequestDto } from './create-user.dto';
 import { ClientProxy } from '@nestjs/microservices';
 import { CreateUserEvent } from './create-user.event';
 import { GetUsersRequestDto } from './get-users.dto';
+import { GetSendEmailHistoryRequestDto } from './get-send-email-history.dto';
 
 @Injectable()
 export class AppService {
@@ -31,7 +32,19 @@ export class AppService {
     return { users: await observable.toPromise() };
   }
 
-  getEmailHistory() {
-    return this.mailServiceClient.send({ cmd: 'get-send-email-history' }, {});
+  async getEmailHistory(): Promise<GetSendEmailHistoryRequestDto> {
+    const observable = this.mailServiceClient.send<
+      {
+        toUser: {
+          id: number;
+          email: string;
+          name: string;
+        };
+        status: 'success' | 'error';
+        ts: number;
+      }[]
+    >({ cmd: 'get-send-email-history' }, {});
+
+    return { history: await observable.toPromise() };
   }
 }
