@@ -32,7 +32,14 @@ export class AppService {
     );
   }
 
-  getUsers() {
+  async getUsers(): Promise<
+    {
+      id: number;
+      name: string;
+      email: string;
+      createdAt: Date;
+    }[]
+  > {
     return this.users;
   }
 }

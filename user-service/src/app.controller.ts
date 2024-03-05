@@ -13,7 +13,9 @@ export class AppController {
   }
 
   @MessagePattern({ cmd: 'get-users' })
-  getUsers() {
-    return this.appService.getUsers();
+  async getUsers(): Promise<
+    { id: number; name: string; email: string; createdAt: Date }[]
+  > {
+    return await this.appService.getUsers();
   }
 }

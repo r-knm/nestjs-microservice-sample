@@ -1,6 +1,7 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { AppService } from './app.service';
 import { CreateUserRequestDto } from './create-user.dto';
+import { GetUsersRequestDto } from './get-users.dto';
 
 @Controller()
 export class AppController {
@@ -12,7 +13,7 @@ export class AppController {
   }
 
   @Get('users')
-  gerUsers() {
+  async gerUsers(): Promise<GetUsersRequestDto> {
     return this.appService.getUsers();
   }
 
