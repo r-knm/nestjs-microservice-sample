@@ -1,6 +1,7 @@
 # r-knm/nestjs-microservice-sample
 
 下記の技術記事に関連するコードをアップしたリポジトリです。
+[NestJSのMicroservices機能を使ってマイクロサービスアーキテクチャのサンプルアプリを実装する](https://zenn.dev/r_knm/articles/88a7002df0454d)
 
 ## リポジトリ構成
 
